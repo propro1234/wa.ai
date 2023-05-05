@@ -19,9 +19,10 @@ def user_Q(ureq):
         frequency_penalty = 0.5,
         presence_penalty = 0
     )
-    return req['choices'][0]['text'].strip()
+    res = req['choices'][0]['text']
+    return res.decode('utf-8')
 
-@app.route("/chat",methods=['POST'])
+@app.route("/chat",methods=['POST','GET'])
 def chat():
     in_que = request.values.get('BODY', '')
 
