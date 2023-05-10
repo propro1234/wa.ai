@@ -21,7 +21,9 @@ def user_Q(ureq):
     )
     res = req['choices'][0]['text']
     return res.decode('utf-8')
-
+@app.route("/")
+def index():
+   return render_template("index.html")
 @app.route("/chat",methods=['POST','GET'])
 def chat():
     in_que = request.values.get('BODY', '')
