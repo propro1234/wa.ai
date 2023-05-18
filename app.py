@@ -3,6 +3,8 @@ import os
 import sys
 from flask import Flask, request, app, render_template
 from twilio.twiml.messaging_response import MessagingResponse
+from vdo_to_mp3 import yt_download
+import re
 
 app = Flask(__name__)
 
@@ -29,6 +31,25 @@ def index():
 @app.route("/chat",methods=['POST'])
 def chat():
     in_que = request.form.get('Body')
+    
+    #---------------------------------------------youtube----------------------------------------------
+    if 'yt' in in_que:
+        match = re.search(' ', in_que)
+        if match:
+            res = test_string[match.end():]
+            in_que = in_que.lstrip('yt.')
+            msg = MessagingResponse()
+            msg.message("Downloading...")
+            yt_download(in_que,res)
+            msg.message(":::Download Completed:::")
+        else:
+            msg = MessagingResponse()
+            msg.message("Please add a space before resolution")
+    else:
+        msg = MessagingResponse()
+        msg.message("Please add 'yt.' before link")
+
+    #------------------------------------------------Youtube----------------------------------------------
     # return render_template("index.html",in_msg = f"message from whatsapp: {in_que}")
     ans = user_Q(in_que)
 
