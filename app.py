@@ -32,16 +32,20 @@ def index():
 def chat():
     in_que = request.form.get('Body')
     
-    #---------------------------------------------youtube----------------------------------------------
+#---------------------------------------------youtube----------------------------------------------
     if 'yt' in in_que:
         match = re.search(' ', in_que)
         if match:
             res = in_que[match.end():]
             in_que = in_que.lstrip('yt.')
             msg = MessagingResponse()
-            msg.message("Downloading...")
-            yt_download(in_que,res)
-            msg.message(":::Download Completed:::")
+            
+            try:
+                msg.message("Downloading...")
+                yt_download(in_que,res)
+                msg.message(":::Download Completed:::")
+            except Exception as e:
+                msg.message("its not working")
         else:
             msg = MessagingResponse()
             msg.message("Please add a space before resolution")
@@ -49,7 +53,7 @@ def chat():
         msg = MessagingResponse()
         msg.message("Please add 'yt.' before link")
 
-    #------------------------------------------------Youtube----------------------------------------------
+#------------------------------------------------Youtube----------------------------------------------
     # return render_template("index.html",in_msg = f"message from whatsapp: {in_que}")
     ans = user_Q(in_que)
 
