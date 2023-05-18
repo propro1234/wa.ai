@@ -36,7 +36,7 @@ def chat():
     if 'yt' in in_que:
         match = re.search(' ', in_que)
         if match:
-            res = test_string[match.end():]
+            res = in_que[match.end():]
             in_que = in_que.lstrip('yt.')
             msg = MessagingResponse()
             msg.message("Downloading...")
