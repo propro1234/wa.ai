@@ -42,7 +42,7 @@ def chat():
             
             try:
                 msg.message("Downloading...")
-                yt_download(in_que,res)
+                media_url=[yt_download(in_que,res)]
                 msg.message(":::Download Completed:::")
             except Exception as e:
                 msg.message(f"its not working because of {e}")
