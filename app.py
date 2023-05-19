@@ -42,28 +42,29 @@ def chat():
             
             try:
                 msg.message("Downloading...")
-                media_url=[yt_download(in_que,res)]
+                yt_download(in_que,res)
                 msg.message(":::Download Completed:::")
             except Exception as e:
                 msg.message(f"its not working because of {e}")
         else:
             msg = MessagingResponse()
             msg.message("Please add a space before resolution")
-    else:
-        msg = MessagingResponse()
-        msg.message("Please add 'yt.' before link")
+            msg.message("Please add 'yt.' before link")
+        
 
 #------------------------------------------------Youtube----------------------------------------------
-    # return render_template("index.html",in_msg = f"message from whatsapp: {in_que}")
-    ans = user_Q(in_que)
+    else:
+        # return render_template("index.html",in_msg = f"message from whatsapp: {in_que}")
+        ans = user_Q(in_que)
 
-    msg = MessagingResponse()# creates an object of MessagingResponse
-    # msg.message(f"You said: {in_que}")# creates an instance of that object
-    msg.message(ans)
-    # wa_msg.body(ans)#with that object we keeping the ans on the body
-    
-    return str(msg) #because of the framework can only detect/read the json object
+        msg = MessagingResponse()# creates an object of MessagingResponse
+        # msg.message(f"You said: {in_que}")# creates an instance of that object
+        msg.message(ans)
+        # wa_msg.body(ans)#with that object we keeping the ans on the body
+        
+        return str(msg) #because of the framework can only detect/read the json object
 
 
 if __name__ == '__main__':
     app.run(debug=True)
+
