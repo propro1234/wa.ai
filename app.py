@@ -50,19 +50,16 @@ def chat():
             msg = MessagingResponse()
             msg.message("Please add a space before resolution")
             msg.message("Please add 'yt.' before link")
-        
+#------------------------------------------------Youtube--------------------------------------------
+    # return render_template("index.html",in_msg = f"message from whatsapp: {in_que}")
+    ans = user_Q(in_que)
 
-#------------------------------------------------Youtube----------------------------------------------
-    else:
-        # return render_template("index.html",in_msg = f"message from whatsapp: {in_que}")
-        ans = user_Q(in_que)
+    msg = MessagingResponse()# creates an object of MessagingResponse
+    # msg.message(f"You said: {in_que}")# creates an instance of that object
+    msg.message(ans)
+    # wa_msg.body(ans)#with that object we keeping the ans on the body
 
-        msg = MessagingResponse()# creates an object of MessagingResponse
-        # msg.message(f"You said: {in_que}")# creates an instance of that object
-        msg.message(ans)
-        # wa_msg.body(ans)#with that object we keeping the ans on the body
-        
-        return str(msg) #because of the framework can only detect/read the json object
+    return str(msg) #because of the framework can only detect/read the json object
 
 
 if __name__ == '__main__':
