@@ -8,16 +8,19 @@
 #     print("Success")
 
 from pytube import YouTube
-def yt_download(v,res):
+def yt_download(link,res):
     #v_url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    yt = YouTube(v)
+    yt = YouTube(link)
+    stream = yt.streams
 
-    streams = yt.streams
+    filtered_stream = stream.filter(resolution=res,file_extension='mp4',progressive=True)
 
-    filtered_streams = streams.filter(resolution=res)
-    stream = filtered_streams.first()
-    #print("Stream of desired stream: ",stream)
-    stream.download(output_path="file:///sdcard/Download/")
+    s = filtered_stream.first()
+    #path = os.getcwd()
+    #print("Downloading...")
+    path = 'file:///sdcard/Download'
+    s.download(path)
+    # print("Complete")
 
 # for stream in streams:
 #     print(stream)
