@@ -45,7 +45,7 @@ def chat():
                 yt_download(in_que,res)
                 msg.message(":::Download Completed:::")
             except Exception as e:
-                msg.message("its not working")
+                msg.message(f"its not working because of {e}")
         else:
             msg = MessagingResponse()
             msg.message("Please add a space before resolution")
@@ -67,4 +67,3 @@ def chat():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
