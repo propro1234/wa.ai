@@ -36,7 +36,8 @@ def chat():
         match = re.search(' ', in_que)
         if match:
             res = in_que[match.end():]
-            in_que = in_que.lstrip('yt.',res)
+            in_que = in_que.lstrip('yt.')
+            in_que = in_que.lstrip(res)
             msg = MessagingResponse()
 
             url = "https://all-media-downloader-v2.p.rapidapi.com/dl"
