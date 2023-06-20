@@ -75,7 +75,8 @@ def chat():
                             #     print(qua[i])
                             #     print(extension[i])
                             for j in range(len(video['formats'])):
-                                # print(qua[j], quality)    
+                                # print(qua[j], quality)  
+                                print(qua[j])
                                 if qua[j] == res and extension[j] == 'mp4':
                                     # print("if")
                                     video_dl_link = video['formats'][j]['url'].encode()
