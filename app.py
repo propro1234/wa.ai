@@ -86,14 +86,14 @@ def chat():
 
                                     msg.message(title+'-->'+' '+duration+' '+video_dl_link.decode('utf-8'))
                                     break
-                                else:
+                               # else:
                                     # print("else")
-                                    msg.message("quality not exit")
+                                    #msg.message("quality not exit")
                         else: #if choice is playlist
                             print("playlist")
                     else:#if choice is audio
                         print("audio")
-                    return render_template('index.html',ti = title, ex = extension, q = quality, d = duration)
+                    #return render_template('index.html',ti = title, ex = extension, q = quality, d = duration)
 
                 else:
                     print(f"failed with error code {response.status_code}")
