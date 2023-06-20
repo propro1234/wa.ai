@@ -81,6 +81,7 @@ def chat():
                                 print(extension[j])
                                 if qua[j] == res and extension[j] == 'mp4':
                                     # print("if")
+                                    print(" matched")
                                     video_dl_link = video['formats'][j]['url'].encode()
 
                                     msg.message(title+'-->'+' '+duration+' '+video_dl_link.decode('utf-8'))
