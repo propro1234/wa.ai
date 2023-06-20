@@ -4,7 +4,7 @@ import sys
 from flask import Flask, request, app, render_template
 from twilio.twiml.messaging_response import MessagingResponse
 import re
-import requests
+import requests as req
 
 app = Flask(__name__)
 
