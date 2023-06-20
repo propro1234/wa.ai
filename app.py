@@ -85,6 +85,7 @@ def chat():
                                     video_dl_link = video['formats'][j]['url'].encode()
 
                                     msg.message(title+'-->'+' '+duration+' '+video_dl_link.decode('utf-8'))
+                                    break
                                 else:
                                     # print("else")
                                     msg.message("quality not exit")
