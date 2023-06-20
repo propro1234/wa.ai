@@ -102,7 +102,6 @@ def chat():
         msg = MessagingResponse()
         msg.message("Please add 'yt.' before link")
 
-    return render_template('index.html')
             
 
 #------------------------------------------------Youtube----------------------------------------------
